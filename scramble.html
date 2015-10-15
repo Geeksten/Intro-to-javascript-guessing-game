@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Scramble</title>
+</head>
+<body>
+    <h1>A Javascript Word Scramble Game</h1>
+
+    <script>
+
+        var WORDS     = ["booger", "apple", "hackbright", "mango"];
+        var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
+
+        var playing = true;
+
+        while (playing) {
+
+            // Grab a random word from the WORDS array - READ about math.random()
+            var gameWord = WORDS[Math.floor(Math.random() * WORDS.length)];
+
+            // Grab the corresponding scrambled word from the SCRAMBLED array - we need a way to access the index. In python, we have .index() method. GOOGLE: Does Javascript have something similar?
+            var randWordindex = WORDS.indexOf(gameWord);
+            var scrambledWord = SCRAMBLED[randWordindex];
+
+            // prompt the user to guess the original word when given the scrambled word. READ about the window.prompt() and window.alert() Javascript method.
+
+            var userGuess = prompt("Can you unscramble this word?\n" + scrambledWord + " \nEnter your guess! "); 
+
+            // If the user guesses wrong, tell them they were wrong and the right word. IF wrong --> tell them they were wrong (prompt). ELSE IF --> right, CONGRATULATE!
+
+            if (userGuess != gameWord) {
+                alert("Oops! Not quite right! Please guess again.");
+            
+                var userGuess = prompt("Can you unscramble this word?\n" + scrambledWord + " \nEnter your guess! ");    
+            }
+
+            else {
+                (userGuess === gameWord)
+                alert("CONGRATULATIONS! You just won a million fake dollars!");
+            }
+            
+            // If the user guesses the correct word, congratulate them.
+
+            playing = confirm("Press OK To keep playing or Cancel to quit");
+
+            // What does confirm() return? Confirm result is a boolean value OK = true and Cancel = False
+            // What does setting the playing variable do?
+        }
+
+        alert("goodbye!");
+    </script>
+    
+</body>
+</html>
